@@ -52,7 +52,8 @@ public class MainActivity extends FragmentActivity {
 
         // Getting a reference to the map
         googleMap = SMapFragment.getMap();
-
+googleMap.setMyLocationEnabled(true);
+        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
 
         // Getting reference to btn_find of the layout activity_main
         Button btn_find = (Button) findViewById(R.id.btn_find);
@@ -79,7 +80,7 @@ public class MainActivity extends FragmentActivity {
                 .getMap();
         Marker toronto = map.addMarker(new MarkerOptions().position(TORONTO)
                 .title("Toronto"));
-
+ map.moveCamera(CameraUpdateFactory.newLatLngZoom(TORONTO,13));
 
         btn_find.setOnClickListener(findClickListener);
 
