@@ -1,3 +1,6 @@
+/**
+ *Main Activity.java: still under development. This powers the core functionality of the application.
+ * Many methods, attributes and functions will be moved to different classes in later builds. **/
 package proj.wifilocator;
 
 import android.support.v7.app.ActionBarActivity;
@@ -85,7 +88,7 @@ public  class MainActivity extends FragmentActivity  {
 
         public void createTempMapData(Button btn_find, OnClickListener findClickListener)
         {
-            //FFFUUUUUUU-
+
             map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)) .getMap();
             Marker centennial = map.addMarker(new MarkerOptions().position(CENTENNIAL) .title("Centennial College"));
             Marker starmark = map.addMarker(new MarkerOptions().position(STARBUCKSMARKVILLE)  .title("Markville Mall - Starbucks"));
