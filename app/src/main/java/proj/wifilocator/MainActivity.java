@@ -38,7 +38,6 @@ import android.content.Context;
 import android.os.Bundle;
 
 public  class MainActivity extends FragmentActivity  {
-    GoogleMap googleMap;
     MarkerOptions markerOptions;
     LatLng latLng;
     static final LatLng CENTENNIAL = new LatLng(43.785042, -79.227052);
@@ -55,9 +54,9 @@ public  class MainActivity extends FragmentActivity  {
         setContentView(R.layout.activity_main);
         MapFragment SMapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
         // Getting a reference to the map
-        googleMap = SMapFragment.getMap();
-        googleMap.setMyLocationEnabled(true);
-        googleMap.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+        map = SMapFragment.getMap();
+        map.setMyLocationEnabled(true);
+        map.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
         // Getting reference to btn_find of the layout activity_main
                 Button btn_find = (Button) findViewById(R.id.btn_find);
                 // Defining button click event listener for the find button
@@ -88,7 +87,6 @@ public  class MainActivity extends FragmentActivity  {
 
         public void createTempMapData(Button btn_find, OnClickListener findClickListener)
         {
-
             map = ((MapFragment) getFragmentManager().findFragmentById(R.id.map)) .getMap();
             Marker centennial = map.addMarker(new MarkerOptions().position(CENTENNIAL) .title("Centennial College"));
             Marker starmark = map.addMarker(new MarkerOptions().position(STARBUCKSMARKVILLE)  .title("Markville Mall - Starbucks"));
@@ -127,7 +125,7 @@ public  class MainActivity extends FragmentActivity  {
                         Toast.makeText(getBaseContext(), "No Location found", Toast.LENGTH_SHORT).show();
                     }
                     // Clears all the existing markers on the map
-                    googleMap.clear();
+                    map.clear();
                     // Adding Markers on Google Map for each matching address
                     for (int i = 0; i < addresses.size(); i++) {
                         Address address = (Address) addresses.get(i);
@@ -139,10 +137,10 @@ public  class MainActivity extends FragmentActivity  {
                         markerOptions = new MarkerOptions();
                         markerOptions.position(latLng);
                         markerOptions.title(addressText);
-                        googleMap.addMarker(markerOptions);
+                        map.addMarker(markerOptions);
                         // Locate the first location
                         if (i == 0)
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLng(latLng));
+                            map.animateCamera(CameraUpdateFactory.newLatLng(latLng));
                     }
                 }
             }
