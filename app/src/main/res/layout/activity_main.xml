@@ -25,7 +25,8 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="@string/hnt_et_location"
-            android:layout_toLeftOf="@id/btn_find" />
+            android:layout_toLeftOf="@id/btn_find"
+            android:text="  Enter Location" />
 
     </RelativeLayout>
 
