@@ -127,7 +127,7 @@ public  class MainActivity extends FragmentActivity  {
                         Toast.makeText(getBaseContext(), "No Location found", Toast.LENGTH_SHORT).show();
                     }
                     // Clears all the existing markers on the map
-                    googleMap.clear();
+                   // googleMap.clear(); ** Temporairly commented because it is conflicted with search.
                     // Adding Markers on Google Map for each matching address
                     for (int i = 0; i < addresses.size(); i++) {
                         Address address = (Address) addresses.get(i);
@@ -139,6 +139,7 @@ public  class MainActivity extends FragmentActivity  {
                         markerOptions = new MarkerOptions();
                         markerOptions.position(latLng);
                         markerOptions.title(addressText);
+                        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE));
                         googleMap.addMarker(markerOptions);
                         // Locate the first location
                         if (i == 0)
