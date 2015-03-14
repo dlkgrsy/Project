@@ -125,7 +125,7 @@ public  class MainActivity extends FragmentActivity  {
                         Toast.makeText(getBaseContext(), "No Location found", Toast.LENGTH_SHORT).show();
                     }
                     // Clears all the existing markers on the map
-                    map.clear(); ** Temporairly commented because it is conflicted with search.
+                    map.clear(); //Temporairly commented because it is conflicted with search.
                     // Adding Markers on Google Map for each matching address
                     for (int i = 0; i < addresses.size(); i++) {
                         Address address = (Address) addresses.get(i);
